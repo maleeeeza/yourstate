@@ -38,14 +38,25 @@ body {
   opacity: 0.5;
 }
 
+.js-search-results {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
 
 
 .legislator-card {
   background-color: white;
-  border: 1px solid black;
+  border: 1px solid #D3D3D3;
   padding: 20px;
   border-radius: 10px;
-  margin: 20px;
+  margin-right: 2px;
+  margin-left: 2px;
+  margin-top: 20px;
+  display: inline-block;
+
 }
 
 
@@ -58,6 +69,8 @@ body {
     -ms-border-radius: 50%;
     -o-border-radius: 50%;
     border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .leg-img {
     display: inline;
@@ -66,6 +79,19 @@ body {
     width: 100%;
 }
 
+
 .bold {
   font-weight: bold;
+}
+
+.js-bill-results {
+  margin-top: 20px;
+}
+
+.next {
+  float: right;
+}
+
+.prev {
+  float: left;
 }
