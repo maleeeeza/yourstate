@@ -5,15 +5,16 @@ var openStatesBillURL = 'https://openstates.org/api/v1/bills/';
 var openStatesKey = 'ad0a422f-9bf4-4eb9-808a-0d1bb03d0867';
 var renderLegislatorTemplate = function(item){
     return `
-    <div class="col-lg-12 legislator-card">
+    <div class="col-xs-12 col-md-6 legislator-card">
       <div class="image-cropper">
         <img src="${item.photo_url}" class="leg-img" alt="${item.full_name}"/>
       </div>
       <h3><span class="bold">${item.chamber} ${item.full_name}</span> </h3>
       <p>
         <span class="bold">Party:</span> ${item.party}  |  <span class="bold">District:</span> ${item.district} </br>
-        <span class="bold">Email:</span> ${item.email}  |  <span class="bold">Phone:</span> ${item.phone}  |  <a href="${item.url}" target="_blank">Legislator Profile</a></br></br>
-      <button id="billButton" class="btn btn-lg btn-info" onclick="displayBillResults('${item.leg_id}', true) "> View/Take Action on ${item.full_name} Legislation</button>
+        <span class="bold">Email:</span> ${item.email}  |  <span class="bold">Phone:</span> ${item.phone}  </br>
+        </br>
+      <button id="billButton" class="btn btn-lg btn-info" onclick="displayBillResults('${item.leg_id}', true) "> View/Take Action on Sponsored Bills</button>
       </p>
 
     </div>
@@ -21,9 +22,10 @@ var renderLegislatorTemplate = function(item){
 }
 
 var renderBillTemplate = function(item){
+    var truncatedTitle = item.title.length >= 100 ? item.title.substring(0, 150) + "..." : item.title;
     return `
-    <div class="col-md-12">
-      <a href="https://www.takebackyourstate.com/#/${item.state}/bills/${item.bill_id}?year=${item.session.substring(0,4)}" target= "_blank"><span class="bold">${item.bill_id}</span> ${item.title}</a> </br></br>
+    <div class="col-xs-12 col-md-6 bill-card">
+      <a href="https://www.takebackyourstate.com/#/${item.state}/bills/${item.bill_id}?year=${item.session.substring(0,4)}" target= "_blank"><span class="bill-number">${item.bill_id}</span></br> ${truncatedTitle}</a> </br></br>
     </div>
     `;
 }
@@ -31,7 +33,7 @@ var renderBillTemplate = function(item){
 var state = {
     legislatorResults: [],
     billResults:{},
-    cursor: 5,
+    cursor: 2,
     currentPosition: 0
 };
 

@@ -4,6 +4,21 @@ body {
 
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+a, a:link {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.btn-info {
+  background-color: #8fd8d6;
+  border-color: #8fd8d6;
+}
 
 .search-area {
   background-image: url("img/rights.png");
@@ -35,28 +50,17 @@ body {
   height: 50px;
   background-color: black;
   color: white;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .js-search-results {
   width: 100%;
-  margin-left: auto;
-  margin-right: auto;
   text-align: center;
 }
 
 
-
 .legislator-card {
-  background-color: white;
-  border: 1px solid #D3D3D3;
   padding: 20px;
-  border-radius: 10px;
-  margin-right: 2px;
-  margin-left: 2px;
-  margin-top: 20px;
-  display: inline-block;
-
 }
 
 
@@ -84,8 +88,23 @@ body {
   font-weight: bold;
 }
 
-.js-bill-results {
+.js-bill-results, .bill-card {
   margin-top: 20px;
+}
+
+.bill-card {
+  height: 150px;
+  text-align: center;
+}
+
+.bill-number {
+  color: #8fd8d6;
+  font-weight: bold;
+  font-size: 150%;
+}
+
+.bill-text {
+  color: black;
 }
 
 .next {
@@ -94,4 +113,8 @@ body {
 
 .prev {
   float: left;
+}
+
+.prev, .next {
+  margin-bottom: 50px;
 }
