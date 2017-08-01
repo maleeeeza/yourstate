@@ -228,7 +228,7 @@ function listenForSubmit() {
           $('html, body').animate({
               scrollTop: $("#legislators").offset().top
           }, 500);
-        }, 50)
+        }, 500)
     });
 
 }
