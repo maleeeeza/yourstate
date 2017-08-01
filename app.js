@@ -76,7 +76,7 @@ function openStatesLegislatorSuccessHandler(data){
         state.billResults[item.leg_id] = [];
         getBillsSponsoredByLegislator(item.leg_id);
     });
-  
+
 }
 
 function openStatesBillSuccessHandler(data, leg_id) {
@@ -132,19 +132,22 @@ function getBillsSponsoredByLegislator(leg_id){
         url: openStatesBillURL,
         data: {
             apikey: openStatesKey,
-            sponsor_id: leg_id,
-            search_window: 'session'
+            sponsor_id: leg_id
+
         },
         dataType: 'json',
         type: 'GET',
         success: function(data){
             openStatesBillSuccessHandler(data, leg_id);
+            console.log(openStatesBillURL);
         },
         error: function(err){
             errorHandler(err);
         }
+
     };
     return $.ajax(settings);
+
 }
 
 function displayLegislatorResults(data) {
@@ -209,6 +212,7 @@ function displayBillResults(leg_id, reset){
 
     $('.js-bill-results').html(results);
     renderNextButton(state, leg_id);
+    console.log(results);
 }
 
 function listenForSubmit() {
@@ -220,9 +224,11 @@ function listenForSubmit() {
     });
 
     $('.js-search').click(function() {
-        $('html, body').animate({
-            scrollTop: $("#legislators").offset().top
-        }, 500);
+        setTimeout(function(){
+          $('html, body').animate({
+              scrollTop: $("#legislators").offset().top
+          }, 500);
+        }, 50)
     });
 
 }
