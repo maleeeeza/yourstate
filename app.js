@@ -16,7 +16,6 @@ var renderLegislatorTemplate = function(item){
         </br>
       <button id="billButton" class="btn btn-lg btn-info" onclick="displayBillResults('${item.leg_id}', true) "> View/Take Action on Sponsored Bills</button>
       </p>
-
     </div>
     `;
 }
@@ -77,11 +76,7 @@ function openStatesLegislatorSuccessHandler(data){
         state.billResults[item.leg_id] = [];
         getBillsSponsoredByLegislator(item.leg_id);
     });
-    $('.js-search').click(function() {
-        $('html, body').animate({
-            scrollTop: $("#legislators").offset().top
-        }, 500);
-    });
+  
 }
 
 function openStatesBillSuccessHandler(data, leg_id) {
@@ -222,6 +217,12 @@ function listenForSubmit() {
         var address = $('.js-query').val();
         $('.js-query').val("");
         getDataFromGeocodeApi(address);
+    });
+
+    $('.js-search').click(function() {
+        $('html, body').animate({
+            scrollTop: $("#legislators").offset().top
+        }, 500);
     });
 
 }
