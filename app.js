@@ -218,7 +218,7 @@ function displayBillResults(leg_id, reset){
 }
 
 function listenForSubmit() {
-    $('.js-search').click(function(event) {
+    $('#address-field').on("submit", function(event) {
         event.preventDefault();
         var address = $('.js-query').val();
         $('.js-query').val("");
@@ -226,7 +226,7 @@ function listenForSubmit() {
         getDataFromGeocodeApi(address);
     });
 
-    
+
 
 }
 
