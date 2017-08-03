@@ -76,7 +76,9 @@ function openStatesLegislatorSuccessHandler(data){
         state.billResults[item.leg_id] = [];
         getBillsSponsoredByLegislator(item.leg_id);
     });
-
+    $('html, body').animate({
+        scrollTop: $("#legislators").offset().top
+    }, 200);
 }
 
 function openStatesBillSuccessHandler(data, leg_id) {
@@ -220,16 +222,11 @@ function listenForSubmit() {
         event.preventDefault();
         var address = $('.js-query').val();
         $('.js-query').val("");
+        $('.js-search-results').empty();
         getDataFromGeocodeApi(address);
     });
 
-    $('.js-search').click(function() {
-        setTimeout(function(){
-          $('html, body').animate({
-              scrollTop: $("#legislators").offset().top
-          }, 200);
-        }, 200)
-    });
+    
 
 }
 
